@@ -1,12 +1,12 @@
-import { useState } from "react";
-import AccordionIcon from "../AccordionIcon";
+import { useState, type FC } from "react";
+import AccordionIcon from "./components/AccordionIcon";
 
 interface Props {
   title: string;
   content: string;
 }
 
-const Accord = ({ title, content }: Props) => {
+const Accordion: FC<Props> = ({ title, content }) => {
   const [toggle, setToggle] = useState<boolean>(false);
   return (
     <div className="py-2 border-b-1 border-stone-400 ">
@@ -15,11 +15,11 @@ const Accord = ({ title, content }: Props) => {
         onClick={() => setToggle((prev) => !prev)}
       >
         <div>{title}</div>
-        <AccordionIcon rotate={toggle}/>
+        <AccordionIcon rotate={toggle} />
       </button>
       {toggle && <div className="px-3">{content}</div>}
     </div>
   );
 };
 
-export default Accord;
+export default Accordion;

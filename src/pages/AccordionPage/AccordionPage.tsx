@@ -1,4 +1,5 @@
-import Accord from "./components/Accord";
+import type { FC } from "react";
+import Accordion from "./components/Accordion";
 
 const DEFAULT_ENTRIES = [
   {
@@ -27,12 +28,16 @@ interface Props {
   entrys?: Entrys[];
 }
 
-const Accordion = ({ entrys = DEFAULT_ENTRIES }: Props) => (
+const AccordionPage: FC<Props> = ({ entrys = DEFAULT_ENTRIES }) => (
   <div className="w-200 mx-auto">
     {entrys.map((entry) => (
-      <Accord key={entry.title} title={entry.title} content={entry.content} />
+      <Accordion
+        key={entry.title}
+        title={entry.title}
+        content={entry.content}
+      />
     ))}
   </div>
 );
 
-export default Accordion;
+export default AccordionPage;
