@@ -1,17 +1,12 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-
+import { useState } from "react";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "./assets/vite.svg";
+import heroImg from "./assets/hero.png";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
-  return (
-    <div className='h4 bg-green-100'>
-      hello
-    </div>
-  )
+  return <div className="h4 bg-green-100">hello</div>;
 }
 
-export default App
+export default App;
