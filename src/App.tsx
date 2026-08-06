@@ -4,6 +4,7 @@ import AccordionPage from "./pages/AccordionPage";
 import ContactFormPage from "./pages/ContactFormPage";
 import HolyGrailPage from "./pages/HolyGrailPage";
 import ProgressBarPage from "./pages/ProgressBarPage";
+import MortgageCalculatorPage from "./pages/MortgageCalculatorPage";
 
 const App = () => (
   <Routes>
@@ -12,6 +13,7 @@ const App = () => (
     <Route path="/contactform" element={<ContactFormPage />} />
     <Route path="/holygrail" element={<HolyGrailPage />} />
     <Route path="/progressbar" element={<ProgressBarPage />} />
+    <Route path="/MortgageCalculator" element={<MortgageCalculatorPage />} />
   </Routes>
 );
 

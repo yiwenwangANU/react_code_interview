@@ -10,15 +10,9 @@ const schema = z.object({
   message: z.string().min(1, "Message is required"),
 });
 
-type ContactBody = {
-  name: string;
-  email: string;
-  message: string;
-};
-
 type ContactResponse = string;
 
-const onSubmit = async (data: ContactBody): Promise<void> => {
+const onSubmit = async (data: z.infer<typeof schema>): Promise<void> => {
   const response = await axios.post<ContactResponse>(
     "https://questions.greatfrontend.com/api/questions/contact-form",
     data,
