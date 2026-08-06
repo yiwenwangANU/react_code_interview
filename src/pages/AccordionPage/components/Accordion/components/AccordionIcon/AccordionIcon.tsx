@@ -6,7 +6,7 @@ interface Props {
 
 const AccordionIcon: FC<Props> = ({ rotate }) => (
   <span
-    className={`inline-block h-2 w-2 border-b-2 border-r-2 border-gray-500 transition-transform duration-200 ${
+    className={`inline-block h-2 w-2 border-r-2 border-b-2 border-gray-500 transition-transform duration-200 ${
       rotate ? "rotate-[225deg]" : "rotate-45"
     }`}
   />

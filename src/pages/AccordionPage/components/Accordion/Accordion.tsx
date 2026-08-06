@@ -9,9 +9,9 @@ interface Props {
 const Accordion: FC<Props> = ({ title, content }) => {
   const [toggle, setToggle] = useState<boolean>(false);
   return (
-    <div className="py-2 border-b-1 border-stone-400 ">
+    <div className="border-b-1 border-stone-400 py-2">
       <button
-        className="w-full flex justify-between bg-stone-200 px-3 py-1 items-center cursor-pointer"
+        className="flex w-full cursor-pointer items-center justify-between bg-stone-200 px-3 py-1"
         onClick={() => setToggle((prev) => !prev)}
       >
         <div>{title}</div>

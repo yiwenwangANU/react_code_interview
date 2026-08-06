@@ -29,7 +29,7 @@ interface Props {
 }
 
 const AccordionPage: FC<Props> = ({ entrys = DEFAULT_ENTRIES }) => (
-  <div className="w-200 mx-auto">
+  <div className="mx-auto w-200">
     {entrys.map((entry) => (
       <Accordion
         key={entry.title}
