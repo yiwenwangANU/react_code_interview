@@ -1,7 +1,7 @@
 import type { FC } from "react";
 
 const HolyGrailPage: FC = () => (
-  <div className="flex h-dvh w-full flex-col">
+  <div className="flex h-dvh flex-col items-stretch">
     <div className="flex h-12 justify-center bg-orange-500">Header</div>
     <div className="flex grow">
       <div className="flex w-20 justify-center bg-orange-400 pt-2">
