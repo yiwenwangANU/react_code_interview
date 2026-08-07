@@ -6,7 +6,8 @@ const HomePage = () => (
     <NavLink to="/contactform">Contact Form</NavLink>
     <NavLink to="/holygrail">Holy Grail</NavLink>
     <NavLink to="/progressbar">Progress Bar</NavLink>
-    <NavLink to="/MortgageCalculator">Mortgage Calculator</NavLink>
+    <NavLink to="/mortgagecalculator">Mortgage Calculator</NavLink>
+    <NavLink to="/flightbooker">Flight Booker</NavLink>
   </nav>
 );
 
