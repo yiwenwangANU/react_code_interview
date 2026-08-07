@@ -6,6 +6,7 @@ import HolyGrailPage from "./pages/HolyGrailPage";
 import ProgressBarPage from "./pages/ProgressBarPage";
 import MortgageCalculatorPage from "./pages/MortgageCalculatorPage";
 import FlightBookerPage from "./pages/FlightBookerPage";
+import GenerateTablePage from "./pages/GenerateTablePage";
 
 const App = () => (
   <Routes>
@@ -16,6 +17,7 @@ const App = () => (
     <Route path="/progressbar" element={<ProgressBarPage />} />
     <Route path="/mortgagecalculator" element={<MortgageCalculatorPage />} />
     <Route path="/flightbooker" element={<FlightBookerPage />} />
+    <Route path="/generatetable" element={<GenerateTablePage />} />
   </Routes>
 );
 

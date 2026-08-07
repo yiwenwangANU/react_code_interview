@@ -1,12 +1,18 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { format, isBefore, parseISO } from "date-fns";
-import { type FC } from "react";
-import { useForm, type SubmitHandler } from "react-hook-form";
+import type { FC } from "react";
+import { useForm } from "react-hook-form";
 import z from "zod";
 
 const FLIGHT_OPTIONS = [
-  { label: "One-way flight", value: "oneWay" },
-  { label: "Rounded-trip flight", value: "roundedTrip" },
+  {
+    label: "One-way flight",
+    value: "oneWay",
+  },
+  {
+    label: "Round-trip flight",
+    value: "roundTrip",
+  },
 ] as const;
 
 const flightValues = FLIGHT_OPTIONS.map((option) => option.value);
@@ -19,74 +25,77 @@ const schema = z
   })
   .refine(
     (data) =>
-      data.flight !== "roundedTrip" ||
-      (data.returnDate !== undefined &&
+      data.flight === "oneWay" ||
+      (data.returnDate &&
         !isBefore(parseISO(data.returnDate), parseISO(data.departureDate))),
-    {
-      message: "Return date cannot be before departure date",
-      path: ["returnDate"],
-    }
-  );
 
-type Inputs = z.infer<typeof schema>;
+    {
+      message: "Return date must be after depature date",
+      path: ["returnDate"],
+    },
+  );
 
 const FlightBookerPage: FC = () => {
   const today = format(new Date(), "yyyy-MM-dd");
   const {
     register,
-    handleSubmit,
     watch,
     formState: { errors },
-  } = useForm<Inputs>({
+    handleSubmit,
+  } = useForm({
     resolver: zodResolver(schema),
   });
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
 
   return (
     <form
+      onSubmit={handleSubmit((data) => {
+        console.log(data);
+      })}
       className="mx-auto grid w-200 gap-2"
-      onSubmit={handleSubmit(onSubmit)}
     >
       <select
-        defaultValue="oneWay"
         {...register("flight")}
-        id="flight-select"
         className="rounded border-1 border-gray-400 bg-gray-200 px-2 py-1"
       >
         {FLIGHT_OPTIONS.map((option) => (
-          <option key={option.value} value={option.value}>
-            {option.label}
-          </option>
+          <option
+            key={option.value}
+            label={option.label}
+            value={option.value}
+          />
         ))}
       </select>
       {errors.flight && (
         <span className="text-red-500">{errors.flight.message}</span>
       )}
       <input
-        className="border-1 border-gray-400 py-0.5"
         type="date"
-        defaultValue={today}
         {...register("departureDate")}
+        defaultValue={today}
         min={today}
+        className="rounded border-1 border-gray-400 px-2 py-1"
       />
       {errors.departureDate && (
         <span className="text-red-500">{errors.departureDate.message}</span>
       )}
-      {watch("flight") === "roundedTrip" && (
-        <input
-          className="border-1 border-gray-400 py-0.5"
-          type="date"
-          min={today}
-          defaultValue={today}
-          {...register("returnDate")}
-        />
+      {watch("flight") === "roundTrip" && (
+        <>
+          <input
+            type="date"
+            {...register("returnDate")}
+            defaultValue={today}
+            min={today}
+            className="rounded border-1 border-gray-400 px-2 py-1"
+          />
+          {errors.returnDate && (
+            <span className="text-red-500">{errors.returnDate.message}</span>
+          )}
+        </>
       )}
-      {errors.returnDate && (
-        <span className="text-red-500">{errors.returnDate.message}</span>
-      )}
-      <button className="cursor-pointer rounded border-1 border-gray-400 bg-gray-200 py-0.5">
-        Book
-      </button>
+      <input
+        type="submit"
+        className="cursor-pointer rounded border-1 border-gray-400 bg-gray-200 px-2 py-1"
+      />
     </form>
   );
 };
