@@ -9,6 +9,7 @@ const HomePage = () => (
     <NavLink to="/mortgagecalculator">Mortgage Calculator</NavLink>
     <NavLink to="/flightbooker">Flight Booker</NavLink>
     <NavLink to="/generatetable">Generate Table</NavLink>
+    <NavLink to="/progressbar2">Progress Bar 2</NavLink>
   </nav>
 );
 
