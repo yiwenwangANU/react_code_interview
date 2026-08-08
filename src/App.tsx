@@ -9,6 +9,7 @@ import FlightBookerPage from "./pages/FlightBookerPage";
 import GenerateTablePage from "./pages/GenerateTablePage";
 import ProgressBar2Page from "./pages/ProgressBar2Page";
 import TemperatureConverterPage from "./pages/TemperatureConverterPage";
+import TweetPage from "./pages/TweetPage";
 
 const App = () => (
   <Routes>
@@ -25,6 +26,7 @@ const App = () => (
       path="/temperatureconverter"
       element={<TemperatureConverterPage />}
     />
+    <Route path="/tweet" element={<TweetPage />} />
   </Routes>
 );
 

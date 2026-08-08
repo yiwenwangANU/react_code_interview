@@ -11,6 +11,7 @@ const HomePage = () => (
     <NavLink to="/generatetable">Generate Table</NavLink>
     <NavLink to="/progressbar2">Progress Bar 2</NavLink>
     <NavLink to="/temperatureconverter">Temperature Converter</NavLink>
+    <NavLink to="/tweet">Tweet</NavLink>
   </nav>
 );
 
