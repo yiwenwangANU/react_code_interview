@@ -10,6 +10,7 @@ const HomePage = () => (
     <NavLink to="/flightbooker">Flight Booker</NavLink>
     <NavLink to="/generatetable">Generate Table</NavLink>
     <NavLink to="/progressbar2">Progress Bar 2</NavLink>
+    <NavLink to="/temperatureconverter">Temperature Converter</NavLink>
   </nav>
 );
 

@@ -8,6 +8,7 @@ import MortgageCalculatorPage from "./pages/MortgageCalculatorPage";
 import FlightBookerPage from "./pages/FlightBookerPage";
 import GenerateTablePage from "./pages/GenerateTablePage";
 import ProgressBar2Page from "./pages/ProgressBar2Page";
+import TemperatureConverterPage from "./pages/TemperatureConverterPage";
 
 const App = () => (
   <Routes>
@@ -20,6 +21,10 @@ const App = () => (
     <Route path="/flightbooker" element={<FlightBookerPage />} />
     <Route path="/generatetable" element={<GenerateTablePage />} />
     <Route path="/progressbar2" element={<ProgressBar2Page progress={50} />} />
+    <Route
+      path="/temperatureconverter"
+      element={<TemperatureConverterPage />}
+    />
   </Routes>
 );
 
